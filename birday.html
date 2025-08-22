@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎂</title>
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff7eb3, #8e44ad, #3498db);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      max-width: 450px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin: 0 0 20px;
+      color: #fff;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #ff7eb3;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ff4081;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #ff4081);
+      animation: floatUp 10s linear infinite;
+      z-index: 1;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 25px;
+      background: #fff;
+    }
+
+    @keyframes floatUp {
+      0% {transform: translateY(0) rotate(0);}
+      100% {transform: translateY(-110vh) rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left:10%; animation-delay:0s;"></div>
+  <div class="balloon" style="left:40%; background: radial-gradient(circle at 30% 30%, #fff, #8e44ad); animation-delay:2s;"></div>
+  <div class="balloon" style="left:70%; background: radial-gradient(circle at 30% 30%, #fff, #3498db); animation-delay:4s;"></div>
+
+  <!-- Card -->
+  <div class="card">
+    <h1>🎂 Happy Birthday Ammai 🎉🫂💖</h1>
+    <p>Wishing you endless joy, love, and success.  
+    May your special day be as amazing as you are! 💖</p>
+    <button onclick="launchConfetti()">Celebrate 🎊</button>
+  </div>
+
+  <!-- Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    function launchConfetti() {
+      var duration = 2 * 1000;
+      var end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+    }
+  </script>
+</body>
+</html>
