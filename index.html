@@ -8,19 +8,21 @@
     /* Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap');
 
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ff7eb3, #8e44ad, #3498db);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+  body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: 
+    linear-gradient(135deg, rgba(255,126,179,0.6), rgba(142,68,173,0.6), rgba(52,152,219,0.6)),
+    url("love2.jpg") center/cover no-repeat fixed;
+  font-family: 'Poppins', sans-serif;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 
     @keyframes gradientBG {
       0% {background-position: 0% 50%;}
